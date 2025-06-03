@@ -1,13 +1,13 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Mail, User, Building, Phone, Shield, CheckCircle } from 'lucide-react';
+import { Mail, User, Building, Phone, Shield, CheckCircle, Clock, HeadphonesIcon } from 'lucide-react';
 import { LeadData } from '../types/quiz';
 import { getQuizData, saveLeadData } from '../utils/storage';
+import { sendLeadEmail } from '../services/emailService';
 import { useToast } from '@/hooks/use-toast';
 
 interface LeadFormProps {
@@ -61,22 +61,30 @@ const LeadForm = ({ onSubmit }: LeadFormProps) => {
       // Save lead data locally
       saveLeadData(leadData);
 
-      // Simulate API call (replace with actual endpoint)
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Send formatted email with lead data
+      console.log('🔄 Envoi de l\'email formaté...');
+      const emailSent = await sendLeadEmail(leadData);
 
-      console.log('Lead data submitted:', leadData);
-      
+      if (emailSent) {
+        console.log('✅ Email envoyé avec succès');
+        toast({
+          title: "Merci !",
+          description: "Vos informations ont été envoyées avec succès. Notre équipe vous recontactera sous peu.",
+        });
+      } else {
+        console.log('⚠️ Erreur envoi email, mais données sauvegardées');
+        toast({
+          title: "Informations reçues",
+          description: "Vos données ont été sauvegardées. Notre équipe vous recontactera sous peu.",
+        });
+      }
+
       setIsSubmitted(true);
-      
-      toast({
-        title: "Merci !",
-        description: "Vos informations ont été envoyées avec succès. Vous recevrez votre rapport sous peu.",
-      });
 
       // Redirect after showing success
       setTimeout(() => {
         onSubmit();
-      }, 2000);
+      }, 3000);
 
     } catch (error) {
       console.error('Error submitting lead data:', error);
@@ -97,14 +105,48 @@ const LeadForm = ({ onSubmit }: LeadFormProps) => {
           <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="h-10 w-10 text-white" />
           </div>
-          <h1 className="text-3xl font-bold mb-4 text-gray-800">Merci !</h1>
+          <h1 className="text-3xl font-bold mb-4 text-gray-800">Merci {formData.name} !</h1>
           <p className="text-gray-600 text-lg mb-6">
-            Votre rapport personnalisé vous sera envoyé par email dans les prochaines minutes.
+            Votre simulation a été envoyée avec succès. Notre équipe commercial vous recontactera très prochainement.
           </p>
-          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-            <p className="text-green-800 text-sm">
-              📧 Vérifiez votre boîte email (et vos spams) pour recevoir votre rapport détaillé.
-            </p>
+          
+          <div className="space-y-4 mb-6">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="flex items-center space-x-3 text-blue-800">
+                <Mail className="h-5 w-5" />
+                <p className="text-sm font-medium">
+                  📧 Email de confirmation envoyé à {formData.email}
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+              <div className="flex items-center space-x-3 text-orange-800">
+                <Clock className="h-5 w-5" />
+                <p className="text-sm font-medium">
+                  ⏰ Vous serez recontacté sous 24-48h
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+              <div className="flex items-center space-x-3 text-purple-800">
+                <HeadphonesIcon className="h-5 w-5" />
+                <p className="text-sm font-medium">
+                  🎯 Un consultant dédié analysera votre profil
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-left">
+            <h3 className="font-semibold text-gray-800 mb-2">Prochaines étapes :</h3>
+            <ul className="text-sm text-gray-600 space-y-1">
+              <li>✅ Analyse de votre simulation par notre équipe</li>
+              <li>📞 Appel de qualification (15-20 min)</li>
+              <li>📋 Présentation de solutions personnalisées</li>
+              <li>🚀 Plan d'action sur-mesure si pertinent</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -116,10 +158,10 @@ const LeadForm = ({ onSubmit }: LeadFormProps) => {
       <div className="max-w-2xl mx-auto px-6">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-            Recevez Votre Rapport Personnalisé
+            Recevez Votre Analyse Personnalisée
           </h1>
           <p className="text-gray-600 text-lg">
-            Quelques informations pour vous envoyer vos recommandations détaillées
+            Laissez vos coordonnées pour recevoir vos recommandations détaillées et être recontacté par un expert
           </p>
         </div>
 
@@ -132,6 +174,7 @@ const LeadForm = ({ onSubmit }: LeadFormProps) => {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
+              
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="flex items-center space-x-2">
@@ -211,7 +254,7 @@ const LeadForm = ({ onSubmit }: LeadFormProps) => {
                     <Label htmlFor="gdpr" className="text-sm cursor-pointer flex items-start space-x-2">
                       <Shield className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
                       <span>
-                        J'accepte que mes données personnelles soient traitées pour recevoir le rapport et des communications commerciales. *
+                        J'accepte que mes données personnelles soient traitées pour recevoir l'analyse personnalisée et être recontacté par un consultant. *
                       </span>
                     </Label>
                     <p className="text-xs text-gray-600 ml-6">
@@ -232,7 +275,7 @@ const LeadForm = ({ onSubmit }: LeadFormProps) => {
                     <span>Envoi en cours...</span>
                   </div>
                 ) : (
-                  'Recevoir mon rapport gratuit'
+                  'Envoyer ma simulation et être recontacté'
                 )}
               </Button>
             </form>
@@ -251,8 +294,8 @@ const LeadForm = ({ onSubmit }: LeadFormProps) => {
               <span>Conforme RGPD</span>
             </div>
             <div className="flex items-center space-x-1">
-              <Mail className="h-4 w-4" />
-              <span>Pas de spam</span>
+              <HeadphonesIcon className="h-4 w-4" />
+              <span>Recontact sous 24h</span>
             </div>
           </div>
         </div>
