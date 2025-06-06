@@ -9,15 +9,15 @@ interface HeroProps {
 
 const Hero = ({ onStartQuiz }: HeroProps) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-royal-50 via-background to-royal-50 dark:from-royal-950/20 dark:via-background dark:to-royal-950/20">
       {/* Navigation */}
       <nav className="px-6 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-            QuizLead
+          <div className="text-2xl font-bold bg-gradient-to-r from-royal-600 to-royal-800 bg-clip-text text-transparent">
+            PatrimoineExpert
           </div>
-          <Button variant="outline" className="hidden md:flex">
-            Contact Us
+          <Button variant="outline" className="hidden md:flex border-royal-600 text-royal-600 hover:bg-royal-50 dark:hover:bg-royal-950/30">
+            Contact
           </Button>
         </div>
       </nav>
@@ -25,18 +25,18 @@ const Hero = ({ onStartQuiz }: HeroProps) => {
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-royal-600 via-royal-700 to-royal-800 bg-clip-text text-transparent leading-tight">
             Découvrez Votre
             <br />
-            Potentiel Business
+            Potentiel Patrimonial
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Une simulation interactive en 7 étapes pour identifier vos opportunités de croissance et optimiser votre stratégie business.
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+            Une simulation interactive en 7 étapes pour identifier vos opportunités de croissance patrimoniale et optimiser votre stratégie financière.
           </p>
           <Button 
             onClick={onStartQuiz}
             size="lg" 
-            className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            className="bg-royal-600 hover:bg-royal-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
             Commencer la Simulation
             <ArrowRight className="ml-2 h-5 w-5" />
@@ -78,18 +78,18 @@ const Hero = ({ onStartQuiz }: HeroProps) => {
 
         {/* Social Proof */}
         <div className="text-center">
-          <p className="text-gray-500 mb-6">Ils nous font confiance :</p>
+          <p className="text-muted-foreground mb-6">Ils nous font confiance :</p>
           <div className="flex justify-center items-center space-x-8 opacity-60">
-            <div className="text-2xl font-bold text-gray-400">TechCorp</div>
-            <div className="text-2xl font-bold text-gray-400">InnovateLab</div>
-            <div className="text-2xl font-bold text-gray-400">GrowthCo</div>
-            <div className="text-2xl font-bold text-gray-400">ScaleUp</div>
+            <div className="text-2xl font-bold text-muted-foreground">TechCorp</div>
+            <div className="text-2xl font-bold text-muted-foreground">InnovateLab</div>
+            <div className="text-2xl font-bold text-muted-foreground">GrowthCo</div>
+            <div className="text-2xl font-bold text-muted-foreground">ScaleUp</div>
           </div>
         </div>
 
         {/* Features List */}
-        <div className="mt-16 bg-white/50 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-          <h2 className="text-2xl font-bold text-center mb-8 text-gray-800">Pourquoi choisir notre simulation ?</h2>
+        <div className="mt-16 bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-border/20">
+          <h2 className="text-2xl font-bold text-center mb-8">Pourquoi choisir notre simulation ?</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
               "Analyse en 7 étapes rapides et intuitives",
@@ -100,8 +100,8 @@ const Hero = ({ onStartQuiz }: HeroProps) => {
               "Accompagnement personnalisé possible"
             ].map((feature, index) => (
               <div key={index} className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                <span className="text-gray-700">{feature}</span>
+                <CheckCircle className="h-5 w-5 text-royal-600 flex-shrink-0" />
+                <span>{feature}</span>
               </div>
             ))}
           </div>
