@@ -16,6 +16,7 @@ const Navigation = ({ isDark, toggleTheme, currentPage, onNavigate }: Navigation
 
   const navItems = [
     { id: 'home', label: 'Accueil' },
+    { id: 'services', label: 'Services' },
     { id: 'about', label: 'À propos' },
     { id: 'simulation', label: 'Simulation' }
   ];

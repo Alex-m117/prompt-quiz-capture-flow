@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import HeroPortfolio from '../components/HeroPortfolio';
 import AboutPage from '../components/AboutPage';
+import ServicesPage from '../components/ServicesPage';
 import Quiz from '../components/Quiz';
 import { QuizData } from '../types/quiz';
 
@@ -54,6 +55,8 @@ const Index = () => {
     }
 
     switch (currentPage) {
+      case 'services':
+        return <ServicesPage onStartQuiz={handleStartQuiz} />;
       case 'about':
         return <AboutPage onStartQuiz={handleStartQuiz} />;
       case 'simulation':
