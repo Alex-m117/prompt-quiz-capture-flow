@@ -5,69 +5,71 @@
 
 @layer base {
   :root {
-    --color-base-100: oklch(100% 0 0);
-    --color-base-200: oklch(97% 0.01 270);
-    --color-base-300: oklch(92% 0.04 100);
-    --color-base-content: oklch(23.574% 0.066 313.189);
-    --color-primary: oklch(78% 0.06 142);
-    --color-primary-content: oklch(25% 0.01 0);
-    --color-secondary: oklch(92% 0.04 100);
-    --color-secondary-content: oklch(25% 0.01 0);
-    --color-accent: oklch(98% 0.005 100);
-    --color-accent-content: oklch(25% 0.01 0);
-    --color-neutral: oklch(28.13% 0 0);
-    --color-neutral-content: oklch(92% 0.004 286.32);
-    --color-info: oklch(74% 0.16 232.661);
-    --color-info-content: oklch(29% 0.066 243.157);
-    --color-success: oklch(84% 0.143 164.978);
-    --color-success-content: oklch(26% 0.051 172.552);
-    --color-warning: oklch(94% 0.129 101.54);
-    --color-warning-content: oklch(28% 0.066 53.813);
-    --color-error: oklch(71% 0.194 13.428);
-    --color-error-content: oklch(27% 0.105 12.094);
+    /* Thème Vert Sauge et Sable */
+    --color-base-100: #faf8f5; /* Sable clair */
+    --color-base-200: #f4f1eb; /* Sable moyen */
+    --color-base-300: #e8e3d8; /* Sable foncé */
+    --color-base-content: #2d3319; /* Vert très foncé pour le texte */
+    --color-primary: #8b9a73; /* Vert sauge principal */
+    --color-primary-content: #ffffff; /* Blanc pour contraste */
+    --color-secondary: #a6b28a; /* Vert sauge clair */
+    --color-secondary-content: #ffffff;
+    --color-accent: #f4f1eb; /* Sable pour accent */
+    --color-accent-content: #2d3319;
+    --color-neutral: #4a5233; /* Vert sauge foncé */
+    --color-neutral-content: #f4f1eb;
+    --color-info: #6b7c5a; /* Vert sauge info */
+    --color-info-content: #ffffff;
+    --color-success: #7a8a63; /* Vert sauge succès */
+    --color-success-content: #ffffff;
+    --color-warning: #d4c4a0; /* Sable doré pour warning */
+    --color-warning-content: #2d3319;
+    --color-error: #a67c6b; /* Terre cuite douce */
+    --color-error-content: #ffffff;
 
-    --background: oklch(var(--color-base-100));
-    --foreground: oklch(var(--color-base-content));
-    --border: oklch(var(--color-base-300));
-    --input: oklch(var(--color-base-300));
-    --ring: oklch(var(--color-primary));
+    --background: var(--color-base-100);
+    --foreground: var(--color-base-content);
+    --border: var(--color-base-300);
+    --input: var(--color-base-300);
+    --ring: var(--color-primary);
     --radius: 0.75rem;
   }
 
   .dark {
-    --color-base-100: oklch(15% 0.02 270);
-    --color-base-200: oklch(12% 0.02 270);
-    --color-base-300: oklch(20% 0.04 270);
-    --color-base-content: oklch(92% 0.004 286.32);
-    --color-primary: oklch(78% 0.06 142);
-    --color-primary-content: oklch(25% 0.01 0);
-    --color-secondary: oklch(20% 0.04 270);
-    --color-secondary-content: oklch(92% 0.004 286.32);
-    --color-accent: oklch(18% 0.005 270);
-    --color-accent-content: oklch(92% 0.004 286.32);
-    --color-neutral: oklch(92% 0.004 286.32);
-    --color-neutral-content: oklch(15% 0.02 270);
+    /* Mode sombre avec vert sauge et sable */
+    --color-base-100: #2d3319; /* Vert très foncé */
+    --color-base-200: #3a4021; /* Vert foncé */
+    --color-base-300: #4a5233; /* Vert sauge foncé */
+    --color-base-content: #f4f1eb; /* Sable clair pour texte */
+    --color-primary: #a6b28a; /* Vert sauge clair */
+    --color-primary-content: #2d3319;
+    --color-secondary: #4a5233;
+    --color-secondary-content: #f4f1eb;
+    --color-accent: #3a4021;
+    --color-accent-content: #f4f1eb;
+    --color-neutral: #f4f1eb;
+    --color-neutral-content: #2d3319;
   }
 }
 
 @layer base {
   * {
-    border-color: oklch(var(--color-base-300));
+    border-color: var(--color-base-300);
   }
 
   body {
-    background-color: oklch(var(--color-base-100));
-    color: oklch(var(--color-base-content));
+    background-color: var(--color-base-100);
+    color: var(--color-base-content);
     font-weight: 300;
     background-image: 
-      radial-gradient(circle at 25% 25%, oklch(var(--color-primary) / 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, oklch(var(--color-accent) / 0.05) 0%, transparent 50%);
+      radial-gradient(circle at 25% 25%, rgba(139, 154, 115, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(244, 241, 235, 0.05) 0%, transparent 50%);
     background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
-    color: oklch(var(--color-base-content));
+    color: var(--color-base-content);
   }
 }
 
@@ -77,23 +79,23 @@
   }
 
   .glass-card {
-    background-color: oklch(var(--color-base-100) / 0.8);
+    background-color: rgba(250, 248, 245, 0.8);
     backdrop-filter: blur(16px);
-    border: 1px solid oklch(var(--color-base-300) / 0.5);
-    box-shadow: 0 4px 6px -1px oklch(var(--color-base-content) / 0.05);
+    border: 1px solid rgba(232, 227, 216, 0.5);
+    box-shadow: 0 4px 6px -1px rgba(45, 51, 25, 0.05);
   }
 
   .elegant-shadow {
     box-shadow: 
-      0 4px 6px -1px oklch(var(--color-base-content) / 0.05),
-      0 2px 4px -1px oklch(var(--color-base-content) / 0.03),
-      0 0 0 1px oklch(var(--color-base-300) / 0.1);
+      0 4px 6px -1px rgba(45, 51, 25, 0.05),
+      0 2px 4px -1px rgba(45, 51, 25, 0.03),
+      0 0 0 1px rgba(232, 227, 216, 0.1);
   }
 
   .elegant-shadow-lg {
     box-shadow: 
-      0 10px 15px -3px oklch(var(--color-base-content) / 0.08),
-      0 4px 6px -2px oklch(var(--color-base-content) / 0.05),
-      0 0 0 1px oklch(var(--color-base-300) / 0.1);
+      0 10px 15px -3px rgba(45, 51, 25, 0.08),
+      0 4px 6px -2px rgba(45, 51, 25, 0.05),
+      0 0 0 1px rgba(232, 227, 216, 0.1);
   }
 }
