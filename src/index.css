@@ -5,26 +5,26 @@
 
 @layer base {
   :root {
-    --color-base-100: 100% 0 0;
-    --color-base-200: 97% 0.01 270;
-    --color-base-300: 92% 0.04 100;
-    --color-base-content: 23.574% 0.066 313.189;
-    --color-primary: 78% 0.06 142;
-    --color-primary-content: 25% 0.01 0;
-    --color-secondary: 92% 0.04 100;
-    --color-secondary-content: 25% 0.01 0;
-    --color-accent: 98% 0.005 100;
-    --color-accent-content: 25% 0.01 0;
-    --color-neutral: 28.13% 0 0;
-    --color-neutral-content: 92% 0.004 286.32;
-    --color-info: 74% 0.16 232.661;
-    --color-info-content: 29% 0.066 243.157;
-    --color-success: 84% 0.143 164.978;
-    --color-success-content: 26% 0.051 172.552;
-    --color-warning: 94% 0.129 101.54;
-    --color-warning-content: 28% 0.066 53.813;
-    --color-error: 71% 0.194 13.428;
-    --color-error-content: 27% 0.105 12.094;
+    --color-base-100: oklch(100% 0 0);
+    --color-base-200: oklch(97% 0.01 270);
+    --color-base-300: oklch(92% 0.04 100);
+    --color-base-content: oklch(23.574% 0.066 313.189);
+    --color-primary: oklch(78% 0.06 142);
+    --color-primary-content: oklch(25% 0.01 0);
+    --color-secondary: oklch(92% 0.04 100);
+    --color-secondary-content: oklch(25% 0.01 0);
+    --color-accent: oklch(98% 0.005 100);
+    --color-accent-content: oklch(25% 0.01 0);
+    --color-neutral: oklch(28.13% 0 0);
+    --color-neutral-content: oklch(92% 0.004 286.32);
+    --color-info: oklch(74% 0.16 232.661);
+    --color-info-content: oklch(29% 0.066 243.157);
+    --color-success: oklch(84% 0.143 164.978);
+    --color-success-content: oklch(26% 0.051 172.552);
+    --color-warning: oklch(94% 0.129 101.54);
+    --color-warning-content: oklch(28% 0.066 53.813);
+    --color-error: oklch(71% 0.194 13.428);
+    --color-error-content: oklch(27% 0.105 12.094);
 
     --background: oklch(var(--color-base-100));
     --foreground: oklch(var(--color-base-content));
@@ -35,18 +35,18 @@
   }
 
   .dark {
-    --color-base-100: 15% 0.02 270;
-    --color-base-200: 12% 0.02 270;
-    --color-base-300: 20% 0.04 270;
-    --color-base-content: 92% 0.004 286.32;
-    --color-primary: 78% 0.06 142;
-    --color-primary-content: 25% 0.01 0;
-    --color-secondary: 20% 0.04 270;
-    --color-secondary-content: 92% 0.004 286.32;
-    --color-accent: 18% 0.005 270;
-    --color-accent-content: 92% 0.004 286.32;
-    --color-neutral: 92% 0.004 286.32;
-    --color-neutral-content: 15% 0.02 270;
+    --color-base-100: oklch(15% 0.02 270);
+    --color-base-200: oklch(12% 0.02 270);
+    --color-base-300: oklch(20% 0.04 270);
+    --color-base-content: oklch(92% 0.004 286.32);
+    --color-primary: oklch(78% 0.06 142);
+    --color-primary-content: oklch(25% 0.01 0);
+    --color-secondary: oklch(20% 0.04 270);
+    --color-secondary-content: oklch(92% 0.004 286.32);
+    --color-accent: oklch(18% 0.005 270);
+    --color-accent-content: oklch(92% 0.004 286.32);
+    --color-neutral: oklch(92% 0.004 286.32);
+    --color-neutral-content: oklch(15% 0.02 270);
   }
 }
 
@@ -71,7 +71,6 @@
   }
 }
 
-/* Custom smooth transitions */
 @layer utilities {
   .transition-all-smooth {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
