@@ -20,74 +20,74 @@ export default {
 		},
 		extend: {
 			colors: {
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
+				border: 'var(--color-base-300)',
+				input: 'var(--color-base-300)',
+				ring: 'var(--color-primary)',
+				background: 'var(--color-base-100)',
+				foreground: 'var(--color-base-content)',
 				primary: {
-					DEFAULT: 'oklch(var(--color-primary))',
-					foreground: 'oklch(var(--color-primary-content))'
+					DEFAULT: 'var(--color-primary)',
+					foreground: 'var(--color-primary-content)'
 				},
 				secondary: {
-					DEFAULT: 'oklch(var(--color-secondary))',
-					foreground: 'oklch(var(--color-secondary-content))'
+					DEFAULT: 'var(--color-secondary)',
+					foreground: 'var(--color-secondary-content)'
 				},
 				accent: {
-					DEFAULT: 'oklch(var(--color-accent))',
-					foreground: 'oklch(var(--color-accent-content))'
+					DEFAULT: 'var(--color-accent)',
+					foreground: 'var(--color-accent-content)'
 				},
 				neutral: {
-					DEFAULT: 'oklch(var(--color-neutral))',
-					foreground: 'oklch(var(--color-neutral-content))'
+					DEFAULT: 'var(--color-neutral)',
+					foreground: 'var(--color-neutral-content)'
 				},
 				base: {
-					100: 'oklch(var(--color-base-100))',
-					200: 'oklch(var(--color-base-200))',
-					300: 'oklch(var(--color-base-300))',
-					content: 'oklch(var(--color-base-content))'
+					100: 'var(--color-base-100)',
+					200: 'var(--color-base-200)',
+					300: 'var(--color-base-300)',
+					content: 'var(--color-base-content)'
 				},
 				info: {
-					DEFAULT: 'oklch(var(--color-info))',
-					foreground: 'oklch(var(--color-info-content))'
+					DEFAULT: 'var(--color-info)',
+					foreground: 'var(--color-info-content)'
 				},
 				success: {
-					DEFAULT: 'oklch(var(--color-success))',
-					foreground: 'oklch(var(--color-success-content))'
+					DEFAULT: 'var(--color-success)',
+					foreground: 'var(--color-success-content)'
 				},
 				warning: {
-					DEFAULT: 'oklch(var(--color-warning))',
-					foreground: 'oklch(var(--color-warning-content))'
+					DEFAULT: 'var(--color-warning)',
+					foreground: 'var(--color-warning-content)'
 				},
 				error: {
-					DEFAULT: 'oklch(var(--color-error))',
-					foreground: 'oklch(var(--color-error-content))'
+					DEFAULT: 'var(--color-error)',
+					foreground: 'var(--color-error-content)'
 				},
 				destructive: {
-					DEFAULT: 'oklch(var(--color-error))',
-					foreground: 'oklch(var(--color-error-content))'
+					DEFAULT: 'var(--color-error)',
+					foreground: 'var(--color-error-content)'
 				},
 				muted: {
-					DEFAULT: 'oklch(var(--color-base-200))',
-					foreground: 'oklch(var(--color-base-content))'
+					DEFAULT: 'var(--color-base-200)',
+					foreground: 'var(--color-base-content)'
 				},
 				popover: {
-					DEFAULT: 'oklch(var(--color-base-100))',
-					foreground: 'oklch(var(--color-base-content))'
+					DEFAULT: 'var(--color-base-100)',
+					foreground: 'var(--color-base-content)'
 				},
 				card: {
-					DEFAULT: 'oklch(var(--color-base-100))',
-					foreground: 'oklch(var(--color-base-content))'
+					DEFAULT: 'var(--color-base-100)',
+					foreground: 'var(--color-base-content)'
 				},
 				sidebar: {
-					DEFAULT: 'oklch(var(--color-base-200))',
-					foreground: 'oklch(var(--color-base-content))',
-					primary: 'oklch(var(--color-primary))',
-					'primary-foreground': 'oklch(var(--color-primary-content))',
-					accent: 'oklch(var(--color-accent))',
-					'accent-foreground': 'oklch(var(--color-accent-content))',
-					border: 'oklch(var(--color-base-300))',
-					ring: 'oklch(var(--color-primary))'
+					DEFAULT: 'var(--color-base-200)',
+					foreground: 'var(--color-base-content)',
+					primary: 'var(--color-primary)',
+					'primary-foreground': 'var(--color-primary-content)',
+					accent: 'var(--color-accent)',
+					'accent-foreground': 'var(--color-accent-content)',
+					border: 'var(--color-base-300)',
+					ring: 'var(--color-primary)'
 				}
 			},
 			borderRadius: {
