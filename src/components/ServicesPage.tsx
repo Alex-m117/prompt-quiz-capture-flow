@@ -1,25 +1,10 @@
 
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { 
-  Shield, 
-  Award, 
-  Users, 
-  TrendingUp, 
-  Heart, 
-  Target, 
-  CheckCircle, 
-  Calculator,
-  PieChart,
-  Building,
-  Banknote,
-  FileText,
-  Phone,
-  Mail,
-  MapPin,
-  Star
-} from 'lucide-react';
+import { ArrowRight, Shield, TrendingUp, Users, Home, PiggyBank, FileText, Calculator, Heart, Award, Target } from 'lucide-react';
+import PresentationCard from '@/components/ui/PresentationCard';
+import FeatureCard from '@/components/ui/FeatureCard';
+import StatCard from '@/components/ui/StatCard';
 
 interface ServicesPageProps {
   onStartQuiz: () => void;
@@ -27,344 +12,326 @@ interface ServicesPageProps {
 
 const ServicesPage = ({ onStartQuiz }: ServicesPageProps) => {
   return (
-    <div className="min-h-screen bg-background pt-24">
-      {/* SEO Optimized Header */}
-      <header className="max-w-7xl mx-auto px-6 py-12">
-        <div className="text-center space-y-6">
-          <h1 className="text-4xl lg:text-6xl font-bold">
-            <span className="bg-gradient-to-r from-royal-600 to-royal-800 bg-clip-text text-transparent">
-              Conseillère en Gestion de Patrimoine
-            </span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Découvrez comment un conseiller en gestion de patrimoine peut transformer votre avenir financier 
-            à travers une approche personnalisée et des stratégies d'investissement adaptées à vos objectifs.
-          </p>
+    <div className="min-h-screen pt-20">
+      {/* Hero Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="space-y-8">
+            <h1 className="text-5xl lg:text-6xl font-light leading-tight">
+              <span className="text-primary font-medium">Conseiller</span> en Gestion
+              <br />
+              de <span className="text-primary font-medium">Patrimoine</span>
+            </h1>
+            <p className="text-xl text-base-content/80 leading-relaxed max-w-4xl mx-auto">
+              Un métier d'expertise au service de votre avenir financier. 
+              Découvrez comment un conseiller en gestion de patrimoine peut transformer 
+              votre situation financière et vous accompagner vers vos objectifs.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6 mt-16">
+            <StatCard value="360°" label="Approche" sublabel="globale" />
+            <StatCard value="Sur-mesure" label="Stratégies" sublabel="personnalisées" />
+            <StatCard value="Long terme" label="Vision" sublabel="patrimoniale" />
+            <StatCard value="Expertise" label="Conseils" sublabel="professionnels" />
+          </div>
         </div>
-      </header>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-6 space-y-20">
-        
-        {/* What is Wealth Management - Hero Section */}
-        <section className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h2 className="text-3xl lg:text-4xl font-bold">
-              Qu'est-ce qu'un Conseiller en Gestion de Patrimoine ?
+      {/* Definition Section */}
+      <section className="py-20 px-6 bg-base-200/30">
+        <div className="max-w-4xl mx-auto">
+          <PresentationCard
+            title="Qu'est-ce qu'un Conseiller en Gestion de Patrimoine ?"
+            description="Un expert financier qui vous accompagne dans l'optimisation et la protection de votre patrimoine"
+            icon={Users}
+            variant="elevated"
+          >
+            <div className="space-y-6">
+              <p className="text-base-content/80 leading-relaxed">
+                Le conseiller en gestion de patrimoine est un professionnel qualifié qui analyse votre situation 
+                financière globale pour vous proposer des stratégies personnalisées d'investissement, 
+                d'optimisation fiscale et de transmission patrimoniale.
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <h4 className="font-medium text-primary flex items-center gap-2">
+                    <Target className="w-4 h-4" />
+                    Sa mission
+                  </h4>
+                  <ul className="space-y-2 text-sm text-base-content/70">
+                    <li>• Analyser votre situation patrimoniale</li>
+                    <li>• Définir vos objectifs à court et long terme</li>
+                    <li>• Élaborer une stratégie sur-mesure</li>
+                    <li>• Suivre et ajuster vos investissements</li>
+                  </ul>
+                </div>
+                
+                <div className="space-y-3">
+                  <h4 className="font-medium text-primary flex items-center gap-2">
+                    <Award className="w-4 h-4" />
+                    Son expertise
+                  </h4>
+                  <ul className="space-y-2 text-sm text-base-content/70">
+                    <li>• Fiscalité et optimisation</li>
+                    <li>• Produits d'investissement</li>
+                    <li>• Droit patrimonial</li>
+                    <li>• Stratégies de transmission</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </PresentationCard>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-light mb-6">
+              Mes <span className="text-primary font-medium">services</span> d'accompagnement
             </h2>
-            
-            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>
-                Un <strong className="text-foreground">conseiller en gestion de patrimoine</strong> est un professionnel 
-                qualifié qui accompagne les particuliers et les professionnels dans l'optimisation, 
-                la protection et la transmission de leur patrimoine.
-              </p>
-              
-              <p>
-                Véritable architecte financier, il analyse votre situation globale pour concevoir 
-                des stratégies sur-mesure qui répondent à vos objectifs de vie : 
-                <span className="text-royal-600 font-semibold"> préparation de la retraite, optimisation fiscale, 
-                transmission familiale, constitution d'un capital</span>.
-              </p>
-              
-              <p>
-                Grâce à une approche holistique, il coordonne tous les aspects de votre patrimoine : 
-                immobilier, financier, professionnel et personnel, pour maximiser votre potentiel 
-                de croissance tout en maîtrisant les risques.
-              </p>
-            </div>
-
-            <Button 
-              onClick={onStartQuiz}
-              className="bg-royal-600 hover:bg-royal-700 text-white rounded-full px-8 py-3 text-lg"
-            >
-              Démarrer mon analyse patrimoniale gratuite
-            </Button>
+            <p className="text-xl text-base-content/70 max-w-3xl mx-auto">
+              Un accompagnement complet pour tous vos projets patrimoniaux
+            </p>
           </div>
 
-          <Card className="border-0 shadow-2xl bg-gradient-to-br from-royal-50 to-royal-100 dark:from-royal-950/20 dark:to-royal-900/20">
-            <CardContent className="p-8">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-center mb-8">Expertise Certifiée</h3>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { icon: Shield, title: "Certifié CGPI", desc: "Conseiller en Gestion de Patrimoine Indépendant" },
-                    { icon: Award, title: "ORIAS", desc: "Immatriculé sous le n°XX-XXX-XXX" },
-                    { icon: Users, title: "ANACOFI", desc: "Membre de l'Association Nationale" },
-                    { icon: Star, title: "200+ Clients", desc: "Accompagnés avec succès" }
-                  ].map((item, index) => (
-                    <div key={index} className="text-center space-y-2">
-                      <div className="w-12 h-12 bg-royal-100 dark:bg-royal-900/30 rounded-full flex items-center justify-center mx-auto">
-                        <item.icon className="h-6 w-6 text-royal-600" />
-                      </div>
-                      <h4 className="font-semibold text-sm">{item.title}</h4>
-                      <p className="text-xs text-muted-foreground">{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Core Services */}
-        <section>
-          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">
-            Mes Domaines d'Expertise en Gestion de Patrimoine
-          </h2>
-          
-          <div className="grid lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Calculator,
-                title: "Optimisation Fiscale",
-                description: "Réduction d'impôts, défiscalisation immobilière (Malraux, LMNP, Censi-Bouvard), optimisation ISF/IFI",
-                benefits: ["Économies fiscales immédiates", "Stratégies légales éprouvées", "Suivi annuel personnalisé"]
-              },
-              {
-                icon: PieChart,
-                title: "Placements Financiers",
-                description: "Assurance-vie, PER, SCPI, actions, obligations, gestion pilotée adaptée à votre profil de risque",
-                benefits: ["Diversification optimale", "Performance maîtrisée", "Liquidité préservée"]
-              },
-              {
-                icon: Building,
-                title: "Investissement Immobilier",
-                description: "SCPI, SCI, investissement locatif, résidence principale, immobilier d'entreprise",
-                benefits: ["Rendements attractifs", "Effet de levier", "Patrimoine tangible"]
-              },
-              {
-                icon: Shield,
-                title: "Protection Sociale",
-                description: "Prévoyance, mutuelle, assurance décès, invalidité, garanties adaptées à votre situation familiale",
-                benefits: ["Sécurité financière", "Protection familiale", "Tranquillité d'esprit"]
-              },
-              {
-                icon: Heart,
-                title: "Transmission Patrimoine",
-                description: "Succession, donation, assurance-vie, SCI familiale, optimisation des droits de succession",
-                benefits: ["Préservation familiale", "Fiscalité optimisée", "Sérénité transgénérationnelle"]
-              },
-              {
-                icon: TrendingUp,
-                title: "Préparation Retraite",
-                description: "PER, PERP, PERCO, épargne retraite, estimation revenus futurs, stratégies de rente",
-                benefits: ["Retraite confortable", "Revenus complémentaires", "Indépendance financière"]
-              }
-            ].map((service, index) => (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-royal-100 dark:bg-royal-900/30 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-royal-600 group-hover:text-white transition-all duration-300">
-                    <service.icon className="h-8 w-8 text-royal-600 group-hover:text-white" />
-                  </div>
-                  
-                  <h3 className="text-xl font-semibold mb-4 text-center">{service.title}</h3>
-                  <p className="text-muted-foreground mb-6 text-center">{service.description}</p>
-                  
-                  <div className="space-y-2">
-                    {service.benefits.map((benefit, idx) => (
-                      <div key={idx} className="flex items-center space-x-3">
-                        <CheckCircle className="h-4 w-4 text-royal-600 flex-shrink-0" />
-                        <span className="text-sm">{benefit}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Process Section */}
-        <section className="bg-gradient-to-br from-royal-50 to-royal-100 dark:from-royal-950/10 dark:to-royal-900/10 rounded-3xl p-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">
-            Ma Méthodologie d'Accompagnement
-          </h2>
-          
-          <div className="grid lg:grid-cols-4 gap-8">
-            {[
-              {
-                step: "01",
-                title: "Analyse Patrimoniale Complète",
-                description: "Audit de votre situation actuelle : revenus, charges, patrimoine, objectifs, contraintes et opportunités.",
-                icon: FileText
-              },
-              {
-                step: "02", 
-                title: "Stratégie Personnalisée",
-                description: "Conception d'un plan d'action sur-mesure avec recommandations précises et chiffrées.",
-                icon: Target
-              },
-              {
-                step: "03",
-                title: "Mise en Œuvre",
-                description: "Accompagnement dans la réalisation : sélection des supports, formalités, optimisation.",
-                icon: CheckCircle
-              },
-              {
-                step: "04",
-                title: "Suivi & Optimisation",
-                description: "Points réguliers, adaptations selon l'évolution de votre situation et des marchés.",
-                icon: TrendingUp
-              }
-            ].map((step, index) => (
-              <div key={index} className="text-center space-y-4">
-                <div className="relative">
-                  <div className="w-20 h-20 bg-royal-600 text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
-                    {step.step}
-                  </div>
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-royal-100 dark:bg-royal-900/30 rounded-full flex items-center justify-center">
-                    <step.icon className="h-4 w-4 text-royal-600" />
-                  </div>
-                </div>
-                <h3 className="text-lg font-semibold">{step.title}</h3>
-                <p className="text-muted-foreground text-sm">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Why Choose Section */}
-        <section>
-          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">
-            Pourquoi Choisir un Conseiller en Gestion de Patrimoine ?
-          </h2>
-          
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              {[
-                {
-                  title: "Expertise Technique Pointue",
-                  description: "Maîtrise approfondie de la fiscalité, du droit, de la finance et de l'immobilier pour optimiser chaque aspect de votre patrimoine."
-                },
-                {
-                  title: "Vision Globale & Prospective", 
-                  description: "Approche holistique qui prend en compte tous vos projets de vie et anticipe les évolutions réglementaires."
-                },
-                {
-                  title: "Gain de Temps Considérable",
-                  description: "Délégation de la veille, de l'analyse et de la gestion administrative pour vous concentrer sur l'essentiel."
-                },
-                {
-                  title: "Neutralité & Indépendance",
-                  description: "Conseils objectifs sans conflit d'intérêt, sélection des meilleures solutions du marché pour votre profil."
-                }
-              ].map((item, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-royal-100 dark:bg-royal-900/30 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="h-4 w-4 text-royal-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <Card className="border-0 shadow-2xl">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-center">Résultats Clients</h3>
-                
-                <div className="space-y-6">
-                  {[
-                    { metric: "32%", label: "Économie fiscale moyenne", icon: Banknote },
-                    { metric: "8.2%", label: "Rendement moyen portfolio", icon: TrendingUp },
-                    { metric: "15 ans", label: "Expérience professionnelle", icon: Award },
-                    { metric: "98%", label: "Taux de satisfaction client", icon: Heart }
-                  ].map((stat, index) => (
-                    <div key={index} className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-royal-100 dark:bg-royal-900/30 rounded-full flex items-center justify-center">
-                        <stat.icon className="h-6 w-6 text-royal-600" />
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-royal-600">{stat.metric}</div>
-                        <div className="text-sm text-muted-foreground">{stat.label}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-border">
-                  <Button 
-                    onClick={onStartQuiz}
-                    className="w-full bg-royal-600 hover:bg-royal-700 text-white rounded-full py-3"
-                  >
-                    Obtenir mon diagnostic patrimonial gratuit
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section>
-          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">
-            Questions Fréquentes sur la Gestion de Patrimoine
-          </h2>
-          
           <div className="grid lg:grid-cols-2 gap-8">
-            {[
-              {
-                question: "À partir de quel montant consulter un conseiller en gestion de patrimoine ?",
-                answer: "Il n'y a pas de montant minimum. Que vous ayez 50 000€ ou 5 millions€, l'important est d'avoir des objectifs patrimoniaux et le souhait d'optimiser sa situation fiscale et financière."
-              },
-              {
-                question: "Quelle est la différence avec un banquier ou un courtier ?",
-                answer: "Le conseiller en gestion de patrimoine offre une approche globale et indépendante, sans se limiter aux produits d'une seule banque. Il coordonne tous les aspects : fiscal, juridique, financier et immobilier."
-              },
-              {
-                question: "Comment sont rémunérés les conseillers en gestion de patrimoine ?",
-                answer: "La rémunération peut être sous forme d'honoraires, de commissions sur les produits souscrits, ou un mix des deux. La transparence totale sur les coûts est garantie dès le premier rendez-vous."
-              },
-              {
-                question: "À quelle fréquence faire le point sur son patrimoine ?",
-                answer: "Un bilan annuel est recommandé, avec des points intermédiaires en cas d'évolution significative de votre situation (mariage, naissance, héritage, changement professionnel)."
-              }
-            ].map((faq, index) => (
-              <Card key={index} className="border-0 shadow-lg">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-lg mb-3 text-royal-600">{faq.question}</h3>
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA Final */}
-        <section className="text-center bg-gradient-to-r from-royal-600 to-royal-800 text-white rounded-3xl p-12">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Prêt à Optimiser Votre Patrimoine ?
-          </h2>
-          <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
-            Découvrez votre potentiel d'optimisation patrimoniale en moins de 5 minutes 
-            avec notre simulation gratuite et personnalisée.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              onClick={onStartQuiz}
-              className="bg-white text-royal-600 hover:bg-gray-100 rounded-full px-8 py-3 text-lg font-semibold"
+            <PresentationCard
+              title="Audit Patrimonial Complet"
+              description="Analyse détaillée de votre situation actuelle"
+              icon={Calculator}
+              variant="elevated"
             >
-              Démarrer ma simulation gratuite
-            </Button>
-            
-            <div className="flex items-center space-x-4 text-sm opacity-75">
-              <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4" />
-                <span>01 XX XX XX XX</span>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-medium">Bilan patrimonial</h4>
+                    <p className="text-sm text-base-content/70">Inventaire complet de vos actifs et passifs</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-medium">Analyse fiscale</h4>
+                    <p className="text-sm text-base-content/70">Étude de votre situation fiscale actuelle</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-medium">Profil investisseur</h4>
+                    <p className="text-sm text-base-content/70">Évaluation de votre appétence au risque</p>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4" />
-                <span>contact@patrimoine-expert.fr</span>
+            </PresentationCard>
+
+            <PresentationCard
+              title="Stratégie d'Investissement"
+              description="Optimisation de vos placements selon vos objectifs"
+              icon={TrendingUp}
+              variant="elevated"
+            >
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-medium">Allocation d'actifs</h4>
+                    <p className="text-sm text-base-content/70">Répartition optimale de vos investissements</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-medium">Sélection de produits</h4>
+                    <p className="text-sm text-base-content/70">Choix des meilleurs supports d'investissement</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-medium">Suivi performance</h4>
+                    <p className="text-sm text-base-content/70">Monitoring et ajustements réguliers</p>
+                  </div>
+                </div>
               </div>
+            </PresentationCard>
+
+            <PresentationCard
+              title="Optimisation Fiscale"
+              description="Réduction légale de votre pression fiscale"
+              icon={Shield}
+              variant="elevated"
+            >
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-medium">Défiscalisation</h4>
+                    <p className="text-sm text-base-content/70">Solutions de réduction d'impôts adaptées</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-medium">Optimisation IFI</h4>
+                    <p className="text-sm text-base-content/70">Stratégies pour réduire l'impôt sur la fortune</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-medium">Niches fiscales</h4>
+                    <p className="text-sm text-base-content/70">Utilisation optimale des dispositifs légaux</p>
+                  </div>
+                </div>
+              </div>
+            </PresentationCard>
+
+            <PresentationCard
+              title="Préparation Retraite"
+              description="Constitution d'un capital pour vos vieux jours"
+              icon={PiggyBank}
+              variant="elevated"
+            >
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-medium">Bilan retraite</h4>
+                    <p className="text-sm text-base-content/70">Estimation de vos revenus futurs</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-medium">Plans d'épargne</h4>
+                    <p className="text-sm text-base-content/70">PER, PERP et autres solutions retraite</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-medium">Stratégie long terme</h4>
+                    <p className="text-sm text-base-content/70">Constitution progressive d'un capital</p>
+                  </div>
+                </div>
+              </div>
+            </PresentationCard>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20 px-6 bg-base-200/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-light mb-6">
+              Ma <span className="text-primary font-medium">méthode</span> d'accompagnement
+            </h2>
+            <p className="text-xl text-base-content/70 max-w-3xl mx-auto">
+              Un processus structuré en 4 étapes pour un accompagnement personnalisé
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center space-y-4">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-light text-primary">1</span>
+              </div>
+              <h3 className="text-lg font-medium">Écoute & Analyse</h3>
+              <p className="text-sm text-base-content/70">
+                Compréhension de votre situation, vos objectifs et vos contraintes
+              </p>
+            </div>
+
+            <div className="text-center space-y-4">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-light text-primary">2</span>
+              </div>
+              <h3 className="text-lg font-medium">Diagnostic</h3>
+              <p className="text-sm text-base-content/70">
+                Audit complet de votre patrimoine et identification des opportunités
+              </p>
+            </div>
+
+            <div className="text-center space-y-4">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-light text-primary">3</span>
+              </div>
+              <h3 className="text-lg font-medium">Stratégie</h3>
+              <p className="text-sm text-base-content/70">
+                Élaboration d'un plan d'action personnalisé et adapté
+              </p>
+            </div>
+
+            <div className="text-center space-y-4">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-light text-primary">4</span>
+              </div>
+              <h3 className="text-lg font-medium">Suivi</h3>
+              <p className="text-sm text-base-content/70">
+                Accompagnement continu et ajustements selon l'évolution
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-      </div>
+      {/* Why Choose Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-light mb-6">
+              Pourquoi faire appel à un <span className="text-primary font-medium">conseiller</span> ?
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <FeatureCard
+              icon={Heart}
+              title="Gain de Temps"
+              description="Déléguez la complexité de la gestion patrimoniale à un expert qui connaît le marché"
+            />
+            <FeatureCard
+              icon={Shield}
+              title="Sécurité Juridique"
+              description="Bénéficiez d'un conseil réglementé et d'une responsabilité professionnelle"
+            />
+            <FeatureCard
+              icon={Target}
+              title="Performance Optimisée"
+              description="Maximisez vos rendements tout en maîtrisant les risques grâce à l'expertise"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="glass-card elegant-shadow-lg p-12 rounded-2xl">
+            <h2 className="text-3xl font-light mb-6">
+              Prêt à optimiser votre <span className="text-primary font-medium">patrimoine</span> ?
+            </h2>
+            <p className="text-lg text-base-content/70 mb-8 max-w-2xl mx-auto">
+              Découvrez gratuitement et en quelques minutes les opportunités 
+              d'optimisation de votre situation patrimoniale.
+            </p>
+            <Button 
+              onClick={onStartQuiz}
+              className="bg-primary hover:bg-primary/90 text-primary-content px-12 py-6 text-lg rounded-xl elegant-shadow-lg transition-all-smooth hover:elegant-shadow-xl hover:-translate-y-1"
+            >
+              Commencer ma simulation gratuite
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

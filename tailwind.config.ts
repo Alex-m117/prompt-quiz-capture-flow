@@ -26,55 +26,68 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: 'oklch(var(--color-primary))',
+					foreground: 'oklch(var(--color-primary-content))'
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
-				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
-				},
-				muted: {
-					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
+					DEFAULT: 'oklch(var(--color-secondary))',
+					foreground: 'oklch(var(--color-secondary-content))'
 				},
 				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					DEFAULT: 'oklch(var(--color-accent))',
+					foreground: 'oklch(var(--color-accent-content))'
+				},
+				neutral: {
+					DEFAULT: 'oklch(var(--color-neutral))',
+					foreground: 'oklch(var(--color-neutral-content))'
+				},
+				base: {
+					100: 'oklch(var(--color-base-100))',
+					200: 'oklch(var(--color-base-200))',
+					300: 'oklch(var(--color-base-300))',
+					content: 'oklch(var(--color-base-content))'
+				},
+				info: {
+					DEFAULT: 'oklch(var(--color-info))',
+					foreground: 'oklch(var(--color-info-content))'
+				},
+				success: {
+					DEFAULT: 'oklch(var(--color-success))',
+					foreground: 'oklch(var(--color-success-content))'
+				},
+				warning: {
+					DEFAULT: 'oklch(var(--color-warning))',
+					foreground: 'oklch(var(--color-warning-content))'
+				},
+				error: {
+					DEFAULT: 'oklch(var(--color-error))',
+					foreground: 'oklch(var(--color-error-content))'
+				},
+				destructive: {
+					DEFAULT: 'oklch(var(--color-error))',
+					foreground: 'oklch(var(--color-error-content))'
+				},
+				muted: {
+					DEFAULT: 'oklch(var(--color-base-200))',
+					foreground: 'oklch(var(--color-base-content))'
 				},
 				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))'
+					DEFAULT: 'oklch(var(--color-base-100))',
+					foreground: 'oklch(var(--color-base-content))'
 				},
 				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					DEFAULT: 'oklch(var(--color-base-100))',
+					foreground: 'oklch(var(--color-base-content))'
 				},
 				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				},
-				royal: {
-					50: '#f0f4ff',
-					100: '#e0e7ff',
-					200: '#c7d2fe',
-					300: '#a5b4fc',
-					400: '#818cf8',
-					500: '#6366f1',
-					600: '#4f46e5',
-					700: '#4338ca',
-					800: '#3730a3',
-					900: '#312e81',
-					950: '#1e1b4b'
+					DEFAULT: 'oklch(var(--color-base-200))',
+					foreground: 'oklch(var(--color-base-content))',
+					primary: 'oklch(var(--color-primary))',
+					'primary-foreground': 'oklch(var(--color-primary-content))',
+					accent: 'oklch(var(--color-accent))',
+					'accent-foreground': 'oklch(var(--color-accent-content))',
+					border: 'oklch(var(--color-base-300))',
+					ring: 'oklch(var(--color-primary))'
 				}
 			},
 			borderRadius: {
@@ -108,12 +121,21 @@ export default {
 						opacity: '1',
 						transform: 'translateY(0)'
 					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0px)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.6s ease-out'
+				'fade-in': 'fade-in 0.6s ease-out',
+				'float': 'float 3s ease-in-out infinite'
 			}
 		}
 	},

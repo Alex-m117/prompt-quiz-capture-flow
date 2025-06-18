@@ -22,16 +22,16 @@ const Navigation = ({ isDark, toggleTheme, currentPage, onNavigate }: Navigation
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-base-300/30">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           
           {/* Logo */}
           <div 
-            className="text-2xl font-bold bg-gradient-to-r from-royal-600 to-royal-800 bg-clip-text text-transparent cursor-pointer"
+            className="text-2xl font-light cursor-pointer transition-colors hover:text-primary"
             onClick={() => onNavigate('home')}
           >
-            PatrimoineExpert
+            <span className="text-primary font-medium">Patrimoine</span>Expert
           </div>
 
           {/* Desktop Navigation */}
@@ -40,13 +40,16 @@ const Navigation = ({ isDark, toggleTheme, currentPage, onNavigate }: Navigation
               <button
                 key={item.id}
                 onClick={() => onNavigate(item.id)}
-                className={`text-sm font-medium transition-colors hover:text-royal-600 ${
+                className={`text-sm font-medium transition-all-smooth hover:text-primary relative ${
                   currentPage === item.id 
-                    ? 'text-royal-600' 
-                    : 'text-muted-foreground'
+                    ? 'text-primary' 
+                    : 'text-base-content/80'
                 }`}
               >
                 {item.label}
+                {currentPage === item.id && (
+                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
+                )}
               </button>
             ))}
           </div>
@@ -57,12 +60,12 @@ const Navigation = ({ isDark, toggleTheme, currentPage, onNavigate }: Navigation
               variant="ghost"
               size="sm"
               onClick={toggleTheme}
-              className="w-9 h-9 rounded-full"
+              className="w-10 h-10 rounded-full hover:bg-primary/10 transition-all-smooth"
             >
               {isDark ? (
-                <Sun className="h-4 w-4" />
+                <Sun className="h-4 w-4 text-primary" />
               ) : (
-                <Moon className="h-4 w-4" />
+                <Moon className="h-4 w-4 text-primary" />
               )}
             </Button>
 
@@ -70,13 +73,13 @@ const Navigation = ({ isDark, toggleTheme, currentPage, onNavigate }: Navigation
             <Button
               variant="ghost"
               size="sm"
-              className="md:hidden w-9 h-9 rounded-full"
+              className="md:hidden w-10 h-10 rounded-full hover:bg-primary/10"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
-                <X className="h-4 w-4" />
+                <X className="h-4 w-4 text-primary" />
               ) : (
-                <Menu className="h-4 w-4" />
+                <Menu className="h-4 w-4 text-primary" />
               )}
             </Button>
           </div>
@@ -84,8 +87,8 @@ const Navigation = ({ isDark, toggleTheme, currentPage, onNavigate }: Navigation
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-border/50">
-            <div className="flex flex-col space-y-4 pt-4">
+          <div className="md:hidden mt-6 pb-6 border-t border-base-300/30">
+            <div className="flex flex-col space-y-4 pt-6">
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -93,10 +96,10 @@ const Navigation = ({ isDark, toggleTheme, currentPage, onNavigate }: Navigation
                     onNavigate(item.id);
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`text-left text-sm font-medium transition-colors hover:text-royal-600 ${
+                  className={`text-left text-sm font-medium transition-all-smooth hover:text-primary py-2 px-4 rounded-lg hover:bg-primary/5 ${
                     currentPage === item.id 
-                      ? 'text-royal-600' 
-                      : 'text-muted-foreground'
+                      ? 'text-primary bg-primary/10' 
+                      : 'text-base-content/80'
                   }`}
                 >
                   {item.label}
