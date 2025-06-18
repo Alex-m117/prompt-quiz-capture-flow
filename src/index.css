@@ -26,11 +26,11 @@
     --color-error: 71% 0.194 13.428;
     --color-error-content: 27% 0.105 12.094;
 
-    --background: var(--color-base-100);
-    --foreground: var(--color-base-content);
-    --border: var(--color-base-300);
-    --input: var(--color-base-300);
-    --ring: var(--color-primary);
+    --background: oklch(var(--color-base-100));
+    --foreground: oklch(var(--color-base-content));
+    --border: oklch(var(--color-base-300));
+    --input: oklch(var(--color-base-300));
+    --ring: oklch(var(--color-primary));
     --radius: 0.75rem;
   }
 
@@ -52,11 +52,13 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: oklch(var(--color-base-300));
   }
 
   body {
-    @apply bg-base-100 text-base-content font-light;
+    background-color: oklch(var(--color-base-100));
+    color: oklch(var(--color-base-content));
+    font-weight: 300;
     background-image: 
       radial-gradient(circle at 25% 25%, oklch(var(--color-primary) / 0.03) 0%, transparent 50%),
       radial-gradient(circle at 75% 75%, oklch(var(--color-accent) / 0.05) 0%, transparent 50%);
@@ -64,7 +66,8 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-medium text-base-content;
+    font-weight: 500;
+    color: oklch(var(--color-base-content));
   }
 }
 
