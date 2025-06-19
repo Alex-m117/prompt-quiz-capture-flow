@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation';
 import HeroPortfolio from '../components/HeroPortfolio';
 import AboutPage from '../components/AboutPage';
 import ServicesPage from '../components/ServicesPage';
+import PortfolioPage from '../components/PortfolioPage';
 import Quiz from '../components/Quiz';
 import { QuizData } from '../types/quiz';
 
@@ -59,6 +60,8 @@ const Index = () => {
         return <ServicesPage onStartQuiz={handleStartQuiz} />;
       case 'about':
         return <AboutPage onStartQuiz={handleStartQuiz} />;
+      case 'portfolio':
+        return <PortfolioPage />;
       case 'simulation':
         return <Quiz onComplete={handleQuizComplete} />;
       default:
