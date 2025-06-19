@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Moon, Sun, Menu, X } from 'lucide-react';
@@ -18,6 +17,7 @@ const Navigation = ({ isDark, toggleTheme, currentPage, onNavigate }: Navigation
     { id: 'home', label: 'Accueil' },
     { id: 'services', label: 'Services' },
     { id: 'about', label: 'À propos' },
+    { id: 'portfolio', label: 'Portfolio' },
     { id: 'simulation', label: 'Simulation' }
   ];
 
